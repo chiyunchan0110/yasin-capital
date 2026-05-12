@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[9963,["/_next/static/chunks/0jw86re6d-w7c.js","/_next/static/chunks/0j~f91eg7c1hf.js"],"ViewportBoundary"]
+3:I[9963,["/_next/static/chunks/0jw86re6d-w7c.js","/_next/static/chunks/0j~f91eg7c1hf.js"],"MetadataBoundary"]
+4:"$Sreact.suspense"
+5:I[71377,["/_next/static/chunks/0jw86re6d-w7c.js","/_next/static/chunks/0j~f91eg7c1hf.js"],"IconMark"]
+0:{"rsc":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"毅信资本 | Yasin Capital - 专业资产投资管理"}],["$","meta","1",{"name":"description","content":"毅信资本控股有限公司 - 专注于资产投资与管理，为投资者创造长期价值"}],["$","meta","2",{"name":"keywords","content":"毅信资本, Yasin Capital, 资产投资, 投资管理, 香港投资"}],["$","link","3",{"rel":"icon","href":"/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L5","4",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"xPO2duJ82SMD_qC_dDx2b"}

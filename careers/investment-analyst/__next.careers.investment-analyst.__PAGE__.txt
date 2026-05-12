@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[78356,["/_next/static/chunks/0jw86re6d-w7c.js","/_next/static/chunks/0j~f91eg7c1hf.js","/_next/static/chunks/0a95n_hzzstn-.js"],"default"]
+3:I[9963,["/_next/static/chunks/0jw86re6d-w7c.js","/_next/static/chunks/0j~f91eg7c1hf.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"slug":"investment-analyst"}],[["$","script","script-0",{"src":"/_next/static/chunks/0a95n_hzzstn-.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"xPO2duJ82SMD_qC_dDx2b"}
+5:null
