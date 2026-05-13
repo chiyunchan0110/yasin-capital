@@ -92,4 +92,72 @@
   setInterval(renderClocks, 1000);
 })();
 </script><script src="/typewriter.js"></script>
-</body></html>
+<script>
+(function() {
+  var translations = {
+    '毅信資本控股有限公司是一家專注於亞太地區的資產管理公司，致力於為客戶提供專業的投資解決方案。': 
+      'Yasin Capital Holdings Limited is an asset management company focused on the Asia-Pacific region, dedicated to providing professional investment solutions for clients.',
+    '快速連結': 'Quick Links',
+    '聯繫我們': 'Contact Us',
+    '郵箱：': 'Email: ',
+    '保留所有權利': 'All Rights Reserved',
+    '毅信資本控股': 'Yasin Capital Holdings',
+    '毅信資本': 'Yasin Capital',
+    '首頁': 'Home',
+    '管理團隊': 'Our Team',
+    '項目/區域': 'Projects/Regions',
+    '服務/產品': 'Services/Products',
+    '公司動態': 'Company News',
+    '加入團隊': 'Join Team',
+    '登入': 'Login',
+    '聯繫我們了解更多': 'Contact Us for More Info',
+    '了解我們的服務': 'Our Services',
+    '申請': 'Apply',
+    '閱讀更多': 'Read More',
+    '查看全部動態': 'View All News',
+    '大中華區': 'Greater China',
+    '吉隆坡': 'Kuala Lumpur',
+    '胡志明': 'Ho Chi Minh',
+    '亞太': 'Asia Pacific',
+    '商業地產': 'Commercial Real Estate',
+    '信用借貸': 'Credit & Lending',
+    '金融服務': 'Financial Services',
+    '農業低碳經濟': 'Agricultural & Low Carbon',
+    '私募股權': 'Private Equity',
+    '投資': 'Investment',
+    '地區': 'Regions',
+    '項目': 'Projects',
+    '服務': 'Services',
+    '產品': 'Products',
+    '關於我們': 'About Us',
+    '公司動態': 'Company News',
+    '加入我們的團隊': 'Join Our Team',
+  };
+  
+  function translateText(node) {
+    if (node.nodeType === 3) { // Text node
+      var text = node.textContent;
+      for (var cn in translations) {
+        if (text.indexOf(cn) !== -1) {
+          text = text.split(cn).join(translations[cn]);
+        }
+      }
+      node.textContent = text;
+    } else if (node.nodeType === 1) { // Element node
+      // Skip script and style tags
+      if (node.tagName === 'SCRIPT' || node.tagName === 'STYLE') return;
+      for (var i = 0; i < node.childNodes.length; i++) {
+        translateText(node.childNodes[i]);
+      }
+    }
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      translateText(document.body);
+    });
+  } else {
+    translateText(document.body);
+  }
+})();
+</script></body></html>
