@@ -92,37 +92,4 @@
   setInterval(renderClocks, 1000);
 })();
 </script><script src="/typewriter.js"></script>
-<script>
-(function() {
-  function translateCities() {
-    var elements = document.querySelectorAll('#clockGrid .text-lg');
-    elements.forEach(function(el) {
-      var text = el.textContent.trim();
-      if (text === '北京') el.textContent = 'Beijing';
-      else if (text === '東京') el.textContent = 'Tokyo';
-      else if (text === '曼谷') el.textContent = 'Bangkok';
-      else if (text === '新加坡') el.textContent = 'Singapore';
-    });
-    // Translate dates (e.g., '5月13日周三' to 'May 13, Wed')
-    var dates = document.querySelectorAll('#clockGrid .text-sm');
-    dates.forEach(function(el) {
-      var text = el.textContent.trim();
-      // Replace Chinese month/day/weekday patterns
-      text = text.replace(/(\d+)月(\d+)日(周[一二三四五六日])/, function(match, month, day, weekday) {
-        var weekdays = {'周一':'Mon','周二':'Tue','周三':'Wed','周四':'Thu','周五':'Fri','周六':'Sat','周日':'Sun'};
-        var months = {'1':'Jan','2':'Feb','3':'Mar','4':'Apr','5':'May','6':'Jun','7':'Jul','8':'Aug','9':'Sep','10':'Oct','11':'Nov','12':'Dec'};
-        return months[month] + ' ' + day + ', ' + weekdays[weekday];
-      });
-      el.textContent = text;
-    });
-  }
-  // Run after DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', translateCities);
-  } else {
-    translateCities();
-  }
-  // Also run periodically in case React re-renders
-  setInterval(translateCities, 500);
-})();
-</script></body></html>
+</body></html>
