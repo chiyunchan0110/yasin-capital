@@ -160,4 +160,76 @@
     translateText(document.body);
   }
 })();
+</script><script>
+// Force override any remaining Chinese text on EN page
+(function() {
+  var overrides = {
+    '北京': 'Beijing',
+    '新加坡': 'Singapore',
+    '東京': 'Tokyo',
+    '曼谷': 'Bangkok',
+    '大中華區': 'Greater China',
+    '吉隆坡': 'Kuala Lumpur',
+    '胡志明': 'Ho Chi Minh',
+    '商業地產': 'Commercial Real Estate',
+    '信用借貸': 'Credit & Lending',
+    '金融服務': 'Financial Services',
+    '農業低碳經濟': 'Agricultural & Low Carbon',
+    'AI人工智能': 'AI & Technology',
+    '私募股權': 'Private Equity',
+    '毅信資本控股有限公司是一家專注於亞太地區的資產管理公司，致力於為客戶提供專業的投資解決方案。': 
+      'Yasin Capital Holdings Limited is an asset management company focused on the Asia-Pacific region, dedicated to providing professional investment solutions for clients.',
+    '快速連結': 'Quick Links',
+    '聯繫我們': 'Contact Us',
+    '郵箱：': 'Email: ',
+    '保留所有權利': 'All Rights Reserved',
+    '毅信資本控股': 'Yasin Capital Holdings',
+    '毅信資本': 'Yasin Capital',
+    '毅信资本': 'Yasin Capital',
+    '毅信资本控股有限公司': 'Yasin Capital Holdings Limited',
+    '专业资产投资管理': 'Professional Asset Investment Management',
+    '专注于资产投资与管理': 'Focusing on Asset Investment and Management',
+    '为投资者创造长期价值': 'Creating Long-term Value for Investors',
+    '资产投资': 'Asset Investment',
+    '投资管理': 'Investment Management',
+    '香港投资': 'Hong Kong Investment',
+  };
+  
+  function walk(node) {
+    if (node.nodeType === 3) {
+      var text = node.textContent;
+      var changed = false;
+      for (var cn in overrides) {
+        if (text.indexOf(cn) !== -1) {
+          text = text.split(cn).join(overrides[cn]);
+          changed = true;
+        }
+      }
+      if (changed) node.textContent = text;
+    } else if (node.nodeType === 1 && node.tagName !== 'SCRIPT' && node.tagName !== 'STYLE') {
+      for (var i = 0; i < node.childNodes.length; i++) {
+        walk(node.childNodes[i]);
+      }
+    }
+  }
+  
+  function run() {
+    walk(document.body);
+    // Also update title if needed
+    for (var cn in overrides) {
+      if (document.title.indexOf(cn) !== -1) {
+        document.title = document.title.split(cn).join(overrides[cn]);
+      }
+    }
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else {
+    run();
+  }
+  // Run again after a delay to catch any late-rendered content
+  setTimeout(run, 1000);
+  setTimeout(run, 3000);
+})();
 </script></body></html>
