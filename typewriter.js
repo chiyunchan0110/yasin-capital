@@ -1,6 +1,11 @@
 // 純 JavaScript 打字機效果 - 不依賴 React
 (function() {
-  const heroTexts = ["毅信資本控股", "YASIN CAPITAL", "穩健創新"];
+  // 根據頁面路徑選擇文字
+  const isEnglishPage = window.location.pathname.startsWith('/en/');
+  const heroTexts = isEnglishPage 
+    ? ["YASIN CAPITAL"] 
+    : ["毅信資本控股"];
+  
   let textIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
@@ -12,8 +17,10 @@
     document.querySelectorAll('.hero-text').forEach(el => {
       el.textContent = firstText;
     });
-    // 延遲後開始動畫循環
-    setTimeout(startAnimation, 3000);
+    // 只有一個文字時不啟動循環動畫
+    if (heroTexts.length > 1) {
+      setTimeout(startAnimation, 3000);
+    }
   }
   
   function startAnimation() {
