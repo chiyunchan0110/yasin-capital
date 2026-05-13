@@ -22,14 +22,8 @@
     if (charIndex < heroText.length) {
       // 繼續打字
       setTimeout(typeWriter, speed);
-    } else {
-      // 打字完成，隱藏光標
-      document.querySelectorAll('.animate-pulse').forEach(function(el) {
-        if (el.textContent === '|') {
-          el.style.display = 'none';
-        }
-      });
     }
+    // 打字完成，無需額外操作
   }
   
   // 頁面加載完成後開始打字
