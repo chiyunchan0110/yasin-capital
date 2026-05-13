@@ -2,61 +2,40 @@
 (function() {
   // 根據頁面路徑選擇文字
   const isEnglishPage = window.location.pathname.startsWith('/en/');
-  const heroTexts = isEnglishPage 
-    ? ["YASIN CAPITAL"] 
-    : ["毅信資本控股"];
+  const heroText = isEnglishPage 
+    ? "YASIN CAPITAL" 
+    : "毅信資本控股";
   
-  let textIndex = 0;
   let charIndex = 0;
-  let isDeleting = false;
   const speed = 150;
   
-  // 初始化：立即顯示第一個文字
-  function init() {
-    const firstText = heroTexts[0];
-    document.querySelectorAll('.hero-text').forEach(el => {
-      el.textContent = firstText;
-    });
-    // 只有一個文字時不啟動循環動畫
-    if (heroTexts.length > 1) {
-      setTimeout(startAnimation, 3000);
-    }
-  }
-  
-  function startAnimation() {
-    charIndex = heroTexts[0].length;
-    isDeleting = true;
-    typeWriter();
-  }
-  
   function typeWriter() {
-    const currentText = heroTexts[textIndex];
-    const displayText = isDeleting 
-      ? currentText.substring(0, charIndex - 1)
-      : currentText.substring(0, charIndex + 1);
+    const displayText = heroText.substring(0, charIndex + 1);
     
     // 更新所有 hero text 元素
-    document.querySelectorAll('.hero-text').forEach(el => {
+    document.querySelectorAll('.hero-text').forEach(function(el) {
       el.textContent = displayText;
     });
     
-    if (!isDeleting && charIndex === currentText.length) {
-      isDeleting = true;
-      setTimeout(typeWriter, 2000); // 暫停2秒
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      textIndex = (textIndex + 1) % heroTexts.length;
-      setTimeout(typeWriter, 500);
-    } else {
-      charIndex += isDeleting ? -1 : 1;
+    charIndex++;
+    
+    if (charIndex < heroText.length) {
+      // 繼續打字
       setTimeout(typeWriter, speed);
+    } else {
+      // 打字完成，隱藏光標
+      document.querySelectorAll('.animate-pulse').forEach(function(el) {
+        if (el.textContent === '|') {
+          el.style.display = 'none';
+        }
+      });
     }
   }
   
-  // 頁面加載完成後初始化
+  // 頁面加載完成後開始打字
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', typeWriter);
   } else {
-    init();
+    typeWriter();
   }
 })();
